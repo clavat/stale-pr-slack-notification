@@ -40,7 +40,7 @@ export const processSlackNotification = async (stalePRs = []) => {
 
 const notifySlack = async (pullURL, payload) => {
   try {
-    const res = await axios.post(`${process.env.INPUT_SLACK_WEB_HOOK}`, payload);
+    const res = await axios.post(`${process.env.SLACK_WEB_HOOK}`, payload);
     console.log(`Pull request ${pullURL} processed sucessfully`);
     return res.data;
   } catch (error) {
