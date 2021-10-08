@@ -1,0 +1,28 @@
+{
+  "name": "stale-pr-slack-notification",
+  "version": "1.0.0",
+  "description": "github action for slack notifcation for stale pr",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "slack",
+    "notifcation",
+    "stale",
+    "pr",
+    "github",
+    "acion"
+  ],
+  "author": "Kaplan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.22.0",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
