@@ -1,11 +1,15 @@
 import { processSlackNotification } from "./services/slack-notification.js";
-import { pullStalePRs } from "./services/github.js";
+import { fetchStaleBranches } from "./services/github.js";
 
 const run = async () => {
   try {
-    const stalePRs = await pullStalePRs(process.env.INPUT_BASE_BRANCH, process.env.INPUT_STALE_LABEL);
-    if (stalePRs && stalePRs.length > 0) {
-      await processSlackNotification(stalePRs);
+    const staleBranches = await fetchStaleBranches(
+      process.env.INPUT_BASE_BRANCH,
+      process.env.MAX_BRANCH_CONCURRENCY,
+      process.env.STALE_DAYS
+    );
+    if (staleBranches && staleBranches.length > 0) {
+      await processSlackNotification(staleBranches);
     } else {
       console.log("No stale Pull requests to process");
     }
