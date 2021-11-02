@@ -5,8 +5,8 @@ const run = async () => {
   try {
     const staleBranches = await fetchStaleBranches(
       process.env.INPUT_BASE_BRANCH,
-      process.env.MAX_BRANCH_CONCURRENCY,
-      process.env.STALE_DAYS
+      process.env.INPUT_BRANCH_CONCURRENCY,
+      process.env.INPUT_STALE_DAYS
     );
     if (staleBranches && staleBranches.length > 0) {
       await processSlackNotification(staleBranches);
