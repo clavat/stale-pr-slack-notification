@@ -24,13 +24,17 @@ permissions:
 
 ## Inputs
 
-### stale_label
-
-**optional** The label to check in the PR. Default `stale`
-
 ### base_branch
 
 **optional** The base brach of the PR. Default `main`
+
+### branch_concurrency
+
+**optional** The number of branches API fetch will be done concurrently. Default `50`
+
+### stale_days
+
+***optional** The number of days since the last update on a branch. Default `30`
 
 ## Example  
 
