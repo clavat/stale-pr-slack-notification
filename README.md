@@ -40,7 +40,7 @@ permissions:
 
 ```yaml
 - name: Notify Stale Issues
-        uses: clavat/stale-pr-slack-notification@master
+        uses: clavat/stale-pr-slack-notification@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK }}
