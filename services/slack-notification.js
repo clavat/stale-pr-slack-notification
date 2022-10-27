@@ -5,7 +5,7 @@ export const processSlackNotification = async (stalePRs = []) => {
     while (stalePRs.length > 0) {
       const processPRs = stalePRs.splice(0, 10);
       await Promise.all(
-        processPRs.map(({ user = "", pullTitle = "", lastUpdateAt = "", pullURL = "" }) => {
+        processPRs.map(({ user = "", pullTitle = "", createdAt = "", updatedAt = "", pullURL = "" }) => {
           const payload = {
             blocks: [
               {
@@ -19,7 +19,7 @@ export const processSlackNotification = async (stalePRs = []) => {
                 type: "section",
                 text: {
                   type: "mrkdwn",
-                  text: `>*Owner:* ${user} \n>*Pull title:* ${pullTitle}\n>*Last updated at:* ${lastUpdateAt}`,
+                  text: `>*Owner:* ${user} \n>*Pull title:* ${pullTitle}\n>*Created at:* ${createdAt}\n>*Last updated at:* ${updatedAt}`,
                 },
               },
               {

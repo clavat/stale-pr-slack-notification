@@ -14,10 +14,11 @@ export const pullStalePRs = async (baseBranch, staleLabel = "stale") => {
   });
 
   const { items = [] } = res.data;
-  return items.map(({ html_url = "", title = "", user: { login: user = "" } = {}, updated_at }) => ({
+  return items.map(({ html_url = "", title = "", user: { login: user = "" } = {}, created_at, updated_at }) => ({
     pullURL: html_url,
     pullTitle: title,
     user,
-    lastUpdateAt: moment(updated_at).format("MMM Do YYYY"),
+    createdAt: moment(created_at).format("MMM Do YYYY"),
+    updatedAt: moment(updated_at).format("MMM Do YYYY"),
   }));
 };
